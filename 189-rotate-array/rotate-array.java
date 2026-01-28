@@ -6,7 +6,12 @@ class Solution {
         ///[4,5,1,2,3]
 
         int n = nums.length;
-        k  = k%n;
+
+        if (n <= 1) return;   // 🔥 IMPORTANT FIX
+
+        k = k % n;
+        if (k == 0) return;
+      
 
         reverse(nums,0,n-1);
         reverse(nums,0,k-1);
