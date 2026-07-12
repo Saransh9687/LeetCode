@@ -3,22 +3,20 @@ class Solution {
 
         int n = nums.length;
 
-        int left=0;
-        int sum =0;
-        int min = Integer.MAX_VALUE;
+        int left =0;
+        int sum = 0;
+        int minLen = Integer.MAX_VALUE;
 
-        for(int right =0;right<n;right++){
-
-            sum+=nums[right];
+        for(int right=0;right<n;right++){
+            sum +=nums[right];
 
             while(sum>=target){
-                min = Math.min(min,right-left+1);
-                sum-=nums[left];
+                minLen = Math.min(minLen,right-left+1);
+                sum -=nums[left];
                 left++;
             }
         }
-
-        return min == Integer.MAX_VALUE ? 0:min;
+        return minLen == Integer.MAX_VALUE ? 0 : minLen;
         
     }
 }
